@@ -120,6 +120,14 @@ huggingface-cli login    # Solo si el modelo es privado o requiere aceptar térm
     <h2 style="text-align: center;">⚙️ Paso 5 — Configuración de Agentes y Modelos (config.json)</h2>
     <p>Esta configuración garantiza que OpenClaw use exclusivamente los recursos locales del Remote Server, desactivando cualquier salida a la nube y estableciendo el contexto en 64K. A continuación se describe cada sección relevante:</p>
 
+    <p><strong>Ubicación del archivo config.json según sistema operativo:</strong></p>
+    <ul>
+        <li><strong>macOS:</strong> <code>/Users/tu-usuario/.openclaw/config.json</code></li>
+        <li><strong>Linux:</strong> <code>/home/tu-usuario/.openclaw/config.json</code></li>
+        <li><strong>Windows:</strong> <code>C:\Users\tu-usuario\.openclaw\config.json</code></li>
+    </ul>
+    <p>Si el directorio <code>.openclaw</code> no existe, créalo manualmente y coloca el archivo <code>config.json</code> dentro. OpenClaw lo detectará automáticamente al arrancar.</p>
+
     <ul>
         <li><strong>models.providers.custom-llama</strong> — Define un proveedor personalizado con API compatible con OpenAI (<code>"api": "openai-responses"</code>), apuntando al Remote Server en el puerto 1234. La <code>apiKey</code> es un valor local ficticio requerido por el cliente pero ignorado por llama.cpp.</li>
         <li><strong>models[].contextWindow</strong> — Debe coincidir con el valor <code>-c</code> usado al lanzar el servidor. Para Gemma 4 se declara <code>131072</code> (capacidad máxima del modelo), aunque el servidor se inicia con 65536 por limitación de RAM. Para Llama 3 se usa <code>16384</code>.</li>
