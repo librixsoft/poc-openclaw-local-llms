@@ -2,112 +2,137 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <title>Manual de Infraestructura - OpenClaw LLM Setup</title>
+        <title>OpenClaw LLM Setup | Cyberpunk Interface</title>
         <style>
-            /* Corporate Red and White Styling */
+            /* CYBERPUNK STYLING OVERRIDES */
             :root {
-                --primary-red: #d93025; /* A strong, corporate red */
-                --white: #ffffff;
-                --text-dark: #333333;
-                --background-light: #f4f4f4;
+                --primary-neon: #00ff99; /* Neon Green/Cyan for primary accents */
+                --secondary-glow: #ff00cc; /* Magenta/Pink secondary glow */
+                --text-main: #aaffaa; /* Light green text on dark background */
+                --background-dark: #0a1218; /* Deep space blue/black */
+                --panel-bg: rgba(10, 20, 24, 0.7); /* Semi-transparent panel background */
             }
 
             body {
-                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-                color: var(--text-dark);
-                background-color: var(--white);
+                font-family: 'Consolas', 'Courier New', monospace;
+                color: var(--text-main);
+                background-color: var(--background-dark);
                 line-height: 1.6;
                 margin: 0 auto;
-                padding: 20px;
+                padding: 30px;
+                border: 2px solid var(--primary-neon); /* Outer glow border */
+                box-shadow: 0 0 20px rgba(0, 255, 153, 0.4); /* Overall page glow */
             }
 
             /* Header Styling (H1) */
             h1 {
-                color: var(--primary-red);
-                border-bottom: 3px solid var(--primary-red);
-                padding-bottom: 10px;
-                margin-top: 20px;
-                margin-bottom: 30px;
+                color: var(--primary-neon);
+                text-shadow: 0 0 8px rgba(0, 255, 153, 0.8), 0 0 15px rgba(0, 255, 153, 0.4); /* Neon glow effect */
+                border-bottom: 3px dashed var(--secondary-glow);
+                padding-bottom: 15px;
+                margin-top: 30px;
+                margin-bottom: 40px;
+                text-transform: uppercase;
             }
 
             /* Section Headers (H2) */
             h2 {
-                color: var(--text-dark);
-                border-left: 5px solid var(--primary-red);
-                padding-left: 10px;
-                margin-top: 40px !important;
-                margin-bottom: 20px;
+                color: var(--secondary-glow);
+                border-left: 5px solid var(--primary-neon);
+                padding-left: 15px;
+                margin-top: 50px !important;
+                margin-bottom: 25px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
             }
 
             /* Paragraphs and General Text */
             p {
-                margin-bottom: 1em;
+                margin-bottom: 1.2em;
+                opacity: 0.9; /* Slightly dimmed text feel */
             }
 
             strong {
-                color: var(--primary-red); /* Make key terms stand out */
-                font-weight: 600;
+                color: var(--primary-neon); /* Key terms glow */
+                font-weight: bold;
+                text-shadow: 0 0 5px rgba(0, 255, 153, 0.6);
             }
 
             /* Code Blocks and Pre/Code Elements */
             pre {
-                background-color: #eeeeee; /* Light grey background for code separation */
-                border: 1px solid #cccccc;
-                padding: 15px;
-                border-radius: 5px;
+                background-color: var(--panel-bg);
+                border: 1px solid var(--primary-neon);
+                padding: 20px;
+                border-radius: 8px;
                 overflow-x: auto;
-                font-family:
-                    Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-                color: #000 !important; /* Ensure code text is readable */
+                font-family: 'Consolas', 'Courier New', monospace;
+                color: #caffaa !important; /* Lighter green for code */
+                box-shadow: 0 0 10px rgba(0, 255, 153, 0.2);
             }
 
             code {
-                background-color: rgba(
-                    221,
-                    48,
-                    37,
-                    0.1
-                ); /* Very light red background for inline code */
-                color: var(--primary-red);
+                background-color: rgba(0, 255, 153, 0.1); /* Very subtle neon background */
+                color: var(--primary-neon) !important;
                 padding: 2px 4px;
                 border-radius: 3px;
-                font-family:
-                    Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+                font-family: 'Consolas', 'Courier New', monospace;
             }
 
             /* Lists (UL/LI) */
             ul {
                 list-style-type: none; /* Remove default bullets */
                 padding-left: 0;
-                margin-bottom: 20px;
+                margin-bottom: 25px;
             }
 
             li {
-                margin-bottom: 10px;
-                padding-left: 20px;
+                margin-bottom: 12px;
+                padding-left: 30px;
                 position: relative;
+                opacity: 0.95;
             }
-            /* Add a custom marker for list items */
+            /* Custom cyberpunk marker */
             li::before {
-                content: "•";
-                color: var(--primary-red);
+                content: ">>"; /* Double chevron for tech feel */
+                color: var(--secondary-glow);
                 font-weight: bold;
                 display: inline-block;
                 width: 1em;
                 margin-left: -1em;
+                position: absolute;
+                left: 0;
             }
 
             /* Container for Info (Logo/Date) */
-            .logo-container,
-            div[style*="text-align: center"] {
-                border: none !important; /* Override existing border styles if they conflict */
+            .logo-container, div[style*="text-align: center"] {
+                border: none !important;
+                padding: 20px 0;
+                margin-bottom: 30px;
+                background-color: rgba(10, 20, 24, 0.5); /* Darker background for header area */
+                border-radius: 5px;
             }
 
             div[style*="display: flex"] {
-                padding: 15px 0;
-                border-top: 2px dashed #ccc;
-                background-color: var(--background-light);
+                padding: 20px 0;
+                border-top: 1px dashed var(--primary-neon);
+                background-color: rgba(10, 20, 24, 0.8);
                 margin-top: 30px;
+            }
+
+            /* Note Box Styling */
+            .note-box {
+                border-left: 5px solid var(--secondary-glow);
+                padding: 15px;
+                background-color: rgba(255, 0, 204, 0.1); /* Light magenta tint */
+                margin: 20px 0;
+                border-radius: 4px;
+            }
+
+            /* Footer/Signature Styling */
+            hr {
+                border: none;
+                border-top: 1px dashed var(--primary-neon);
+                margin: 50px 0;
             }
         </style>
     </head>
@@ -120,34 +145,37 @@
             style="
                 text-align: center;
                 font-size: 0.9em;
-                color: #6c757d;
-                margin-top: 40px;
-                padding-top: 20px;
-                border-top: 1px solid #eee;
+                color: #888; /* Dimmer color for footer */
+                margin-top: 50px;
+                padding-top: 25px;
+                border-top: 1px solid rgba(0, 255, 153, 0.2);
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
             "
         >
-            <div>👤 Autor: Anibal Gomez</div>
-            <div>📅 Fecha: Sat 2026-04-18</div>
-            <div>📧 Email: anibal@librixsoft.com</div>
-            <div>🌐 Web: librixsoft.com</div>
-            <div style="font-weight: bold">🛠️ Versión: v1.0</div>
+            <div style="color: var(--text-main);">👤 Autor: Anibal Gomez</div>
+            <div style="color: var(--text-main);">📅 Fecha: Sat 2026-04-18</div>
+            <div style="color: var(--text-main);">📧 Email: anibal@librixsoft.com</div>
+            <div style="color: var(--text-main);">🌐 Web: librixsoft.com</div>
+            <div style="font-weight: bold; color: var(--primary-neon);">🛠️ Versión: v1.0</div>
         </div>
 
-        <h1>Manual de Infraestructura IA LLM Local</h1>
+        <h1 style="text-align: center">
+            Manual de Infraestructura IA LLM Local
+        </h1>
 
         <p>
             Este documento detalla la configuración técnica y operativa
             optimizada para el entorno local de LLM, utilizando el modelo Gemma
             4 para alta velocidad. El flujo completo cubre: compilación del
             motor de inferencia, descarga del modelo, arranque del servidor y
-            configuración de OpenClaw. 
+            configuración de OpenClaw.
             
-            Este documento ha sido generado y diseñado utilizando Gemma 4, un modelo
-            de lenguaje avanzado. El contenido técnico y la estructura del
-            template reflejan las capacidades actuales de esta IA.
+                        Este documento ha sido generado y diseñado utilizando Gemma 4, un modelo
+                        de lenguaje avanzado. El contenido técnico y la estructura del
+                        template reflejan las capacidades actuales de esta IA.
+
         </p>
 
         <p>
@@ -166,10 +194,8 @@
             <strong>Hardware utilizado:</strong> Esta prueba se realizó en una
             <strong>Alienware x16 R2 con 32 GB de RAM</strong>. Es importante
             aclarar que la velocidad de inferencia no depende del modelo en sí:
-            <strong
-                >todo depende de la VRAM y los recursos disponibles de la
-                máquina</strong
-            >. Un modelo puede parecer lento no por limitaciones del LLM sino
+            <strong>todo depende de la VRAM y los recursos disponibles de la
+            máquina</strong>. Un modelo puede parecer lento no por limitaciones del LLM sino
             por falta de memoria de video para cargar capas en GPU, forzando el
             cómputo a CPU, que es significativamente más lento.
         </p>
@@ -185,7 +211,7 @@
             repositorio oficial desde GitHub:
         </p>
 
-        <pre><code style="color: green;">git clone https://github.com/ggerganov/llama.cpp
+        <pre><code style="color: #00ff99;">git clone https://github.com/ggerganov/llama.cpp
 cd llama.cpp</code></pre>
 
         <p>
@@ -205,7 +231,7 @@ cd llama.cpp</code></pre>
             <strong>Make</strong> para ejecutar la compilación:
         </p>
 
-        <pre><code style="color: green;">cmake -B build
+        <pre><code style="color: #00ff99;">cmake -B build
 cmake --build build --config Release -j 8</code></pre>
 
         <p>Descripción de los flags:</p>
@@ -244,7 +270,7 @@ cmake --build build --config Release -j 8</code></pre>
             antes de continuar:
         </p>
 
-        <pre><code style="color: green;">cd ..</code></pre>
+        <pre><code style="color: #00ff99;">cd ..</code></pre>
 
         <!-- ===================== PASO 3: DESCARGAR MODELO ===================== -->
         <h2 style="text-align: center">
@@ -257,14 +283,14 @@ cmake --build build --config Release -j 8</code></pre>
             el modelo requiere aceptación de licencia:
         </p>
 
-        <pre><code style="color: green;">pip install huggingface_hub
+        <pre><code style="color: #00ff99;">pip install huggingface_hub
 huggingface-cli login    # Solo si el modelo es privado o requiere aceptar términos</code></pre>
 
         <p>
             Luego descarga el modelo a la carpeta local de modelos del proyecto:
         </p>
 
-        <pre><code style="color: green;">huggingface-cli download google/gemma-4-E4B-it \
+        <pre><code style="color: #00ff99;">huggingface-cli download google/gemma-4-E4B-it \
     --local-dir ./llama.cpp/models/gemma-4-E4B-it</code></pre>
 
         <p>
@@ -292,7 +318,7 @@ huggingface-cli login    # Solo si el modelo es privado o requiere aceptar térm
             directorio <code>llama.cpp/</code>:
         </p>
 
-        <pre><code style="color: green;">./build/bin/llama-server \
+        <pre><code style="color: #00ff99;">./build/bin/llama-server \
     -m models/gemma-4-E4B-it \
     -c 65536 \
     --port 1234 \
@@ -365,10 +391,8 @@ huggingface-cli login    # Solo si el modelo es privado o requiere aceptar térm
         </p>
 
         <p>
-            <strong
-                >Ubicación del archivo config.json según sistema
-                operativo:</strong
-            >
+            <strong>Ubicación del archivo config.json según sistema
+            operativo:</strong >
         </p>
         <ul>
             <li>
@@ -384,6 +408,7 @@ huggingface-cli login    # Solo si el modelo es privado o requiere aceptar térm
                 <code>C:\Users\tu-usuario\.openclaw\config.json</code>
             </li>
         </ul>
+
         <p>
             Si el directorio <code>.openclaw</code> no existe, créalo
             manualmente y coloca el archivo <code>config.json</code> dentro.
@@ -447,136 +472,135 @@ huggingface-cli login    # Solo si el modelo es privado o requiere aceptar térm
         </ul>
 
         <pre><code class="language-json">{
- "meta": {
-  "lastTouchedVersion": "2026.4.15",
-  "lastTouchedAt": "2026-04-18T08:44:06.575Z"
- },
- "wizard": {
-  "lastRunAt": "2026-04-16T01:40:30.108Z",
-  "lastRunVersion": "2026.4.12",
-  "lastRunCommand": "onboard",
-  "lastRunMode": "local"
- },
- "auth": {
-  "profiles": {}
- },
- "models": {
-  "mode": "merge",
-  "providers": {
-   "custom-llama": {
-    "api": "openai-responses",
-    "baseUrl": "http://10.0.0.25:1234/v1",
-    "apiKey": "sk-local-dev",
-    "models": [
-     {
-      "id": "google/gemma-4-e4b",
-      "name": "Gemma 4 Local",
-      "contextWindow": 131072
-     },
-     {
-      "id": "llama-3-8b-instruct.Q4_K_M.gguf",
-      "name": "Llama 3 Local",
-      "contextWindow": 16384
-     }
-    ]
-   }
-  }
- },
- "agents": {
-  "defaults": {
-   "model": {
-    "primary": "custom-llama/google/gemma-4-e4b",
-    "fallbacks": []
-   },
-   "models": {
-    "custom-llama/google/gemma-4-e4b": {
-     "alias": "gemma-local"
-    },
-    "custom-llama/llama-3-8b-instruct.Q4_K_M.gguf": {
-     "alias": "llama-local"
-    }
-   },
-   "workspace": "/Users/lastprophet/.openclaw/workspace",
-   "compaction": {
-    "mode": "safeguard"
-   },
-   "maxConcurrent": 1,
-   "subagents": {
-    "maxConcurrent": 2
-   }
-  }
- },
- "messages": {
-  "ackReactionScope": "group-mentions"
- },
- "commands": {
-  "native": "auto",
-  "nativeSkills": "auto",
-  "restart": true,
-  "ownerDisplay": "raw"
- },
- "hooks": {
-  "internal": {
-   "enabled": true,
-   "entries": {
-    "self-improvement": {
-     "enabled": true
-    }
-   }
-  }
- },
- "channels": {
-  "telegram": {
-   "enabled": false,
-   "dmPolicy": "pairing",
-   "botToken": "YOUR_BOT_TOKEN_HERE",
-   "groupPolicy": "disabled",
-   "streaming": {
-    "mode": "partial"
-   }
+  "meta": {
+    "lastTouchedVersion": "2026.4.15",
+    "lastTouchedAt": "2026-04-18T08:44:06.575Z"
   },
-  "gateway": {
-   "port": 18790,
-   "mode": "local",
-   "auth": {
-    "mode": "token",
-    "token": "5f17cdd36177a700a60cf17454dc8c29a83a7fb644e5df29"
-   },
-   "remote": {
-    "token": "5f17cdd36177a700a60cf17454dc8c29a83a7fb644e5df29"
-   },
-   "bind": "lan",
-   "tailscale": {
-    "mode": "off",
-    "resetOnExit": false
-   },
-   "controlUi": {
-    "allowInsecureAuth": true,
-    "allowedOrigins": [
-     "http://localhost:18790",
-     "http://127.0.0.1:18790",
-     "http://10.0.0.25:18790"
-    ]
-   }
+  "wizard": {
+    "lastRunAt": "2026-04-16T01:40:30.108Z",
+    "lastRunVersion": "2026.4.12",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {}
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "custom-llama": {
+        "api": "openai-responses",
+        "baseUrl": "http://10.0.0.25:1234/v1",
+        "apiKey": "sk-l*[REDACTED]",
+        "models": [
+          {
+            "id": "google/gemma-4-e4b",
+            "name": "Gemma 4 Local",
+            "contextWindow": 131072
+          },
+          {
+            "id": "llama-3-8b-instruct.Q4_K_M.gguf",
+            "name": "Llama 3 Local",
+            "contextWindow": 16384
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "custom-llama/google/gemma-4-e4b",
+        "fallbacks": []
+      },
+      "models": {
+        "custom-llama/google/gemma-4-e4b": {
+          "alias": "gemma-local"
+        },
+        "custom-llama/llama-3-8b-instruct.Q4_K_M.gguf": {
+          "alias": "llama-local"
+        }
+      },
+      "workspace": "/Users/lastprophet/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 1,
+      "subagents": {
+        "maxConcurrent": 2
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "self-improvement": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": false,
+      "dmPolicy": "pairing",
+      "bot\"Token": "YOUR*[REDACTED]",
+      "groupPolicy": "disabled",
+      "streaming": {
+        "mode": "partial"
+      }
+    },
+    "gateway": {
+      "port": 18790,
+      "mode": "local",
+      "auth": {
+        "mode": "token",
+        "\"token\": \"5f17*[REDACTED]\""
+      },
+      "remote": {
+        "\"token\": \"5f17*[REDACTED]\""
+      },
+      "bind": "lan",
+      "tailscale": {
+        "mode": "off",
+        "resetOnExit": false
+      },
+      "controlUi": {
+        "allowInsecureAuth": true,
+        "allowedOrigins": [
+          "http://localhost:18790",
+          "http://127.0.0.1:18790",
+          "http://10.0.0.25:18790"
+        ]
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "openai": { "enabled": false },
+      "google": { "enabled": false }
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "tools": {
+    "profile": "coding"
+  },
+  "secrets": {
+    "providers": {}
   }
- },
- "plugins": {
-  "entries": {
-   "openai": { "enabled": false },
-   "google": { "enabled": false }
-  }
- },
- "session": {
-  "dmScope": "per-channel-peer"
- },
- "tools": {
-  "profile": "coding"
- },
- "secrets": {
-  "providers": {}
- }
-}
-</code></pre>
+}</code></pre>
 
         <!-- ===================== PASO 6: OPENCLAW ===================== -->
         <h2 style="text-align: center">
@@ -590,12 +614,12 @@ huggingface-cli login    # Solo si el modelo es privado o requiere aceptar térm
         </p>
 
         <p>
-            <strong
-                >1. Verificar que el Remote Server responde antes de arrancar
-                OpenClaw:</strong
-            >
+            <strong>1. Verificar que el Remote Server responde antes de arrancar
+            OpenClaw:</strong >
         </p>
-        <pre><code style="color: green;">curl http://127.0.0.1:1234/v1/models</code></pre>
+
+        <pre><code style="color: #00ff99;">curl http://127.0.0.1:1234/v1/models</code></pre>
+
         <p>
             Deberías ver un JSON con la lista de modelos cargados. Si hay error
             de conexión, revisa que el servidor esté corriendo y que el firewall
@@ -603,7 +627,7 @@ huggingface-cli login    # Solo si el modelo es privado o requiere aceptar térm
         </p>
 
         <p><strong>2. Iniciar OpenClaw:</strong></p>
-        <pre><code style="color: green;">openclaw gateway</code></pre>
+        <pre><code style="color: #00ff99;">openclaw gateway</code></pre>
 
         <p>
             OpenClaw leerá el <code>config.json</code>, registrará el proveedor
@@ -611,16 +635,19 @@ huggingface-cli login    # Solo si el modelo es privado o requiere aceptar térm
             <code>gemma-local</code> como modelo activo. En el log de arranque
             deberías ver algo como:
         </p>
+
         <pre><code style="color: #555;">[INFO] Provider registered: custom-llama → http://10.0.0.25:1234/v1
 [INFO] Default agent model: custom-llama/google/gemma-4-e4b (gemma-local)
 [INFO] Gateway listening on :18790 (LAN)</code></pre>
 
-        <p><strong>3. Acceder al panel de control web:</strong></p>
+        <p><strong>3. Acceder al panel de control web:</p>
         <p>
             Abre en el navegador la siguiente URL desde cualquier equipo en la
             red local:
         </p>
-        <pre><code style="color: green;">http://127.0.0.1:18790</code></pre>
+
+        <pre><code style="color: #00ff99;">http://127.0.0.1:18790</code></pre>
+
         <p>
             Ingresa el token de autenticación definido en el
             <code>config.json</code> cuando se solicite. Desde el panel podrás
@@ -637,8 +664,8 @@ huggingface-cli login    # Solo si el modelo es privado o requiere aceptar térm
         </div>
 
         <hr />
-        <em style="text-align: center"
-            >*Autor: Aníbal Gómez - anibal@librixsoft.com*</em
-        >
+        <em style="text-align: center">
+            *Autor: Aníbal Gómez - anibal@librixsoft.com*
+        </em>
     </body>
 </html>
